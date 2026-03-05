@@ -17,12 +17,12 @@ public class Memory {
     
     //SAVE USER DETAILS
     public void save(Employee user) {
-        users.put(user.getName(), user);
+        users.put(user.getEmpId(), user);
     }
     
     //FIND USER
-    public Employee find(String username) {
-        return users.get(username);  //Returns the RegisteredUser details [Registered User details] 
+    public Employee find(String empId) {
+        return users.get(empId);  //Returns the RegisteredUser details [Registered User details] 
     }
     
     //Update Password

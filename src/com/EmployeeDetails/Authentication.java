@@ -1,6 +1,6 @@
 package com.EmployeeDetails;
 
-public abstract class Authentication {
+public abstract interface Authentication {
 		abstract boolean login(String username, String password);
 	}
 

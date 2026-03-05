@@ -2,6 +2,10 @@ package com.EmployeeDetails;
 
 import java.util.*;
 
+import com.EmployeeDetails.Authentication;
+import com.EmployeeDetails.BasicAuth;
+import com.EmployeeDetails.Employee;
+
 
 public class Main {
 	public static void main(String[] args) {
@@ -15,6 +19,8 @@ public class Main {
 			//MENU 
 			System.out.println("Employee Payroll App");
 			System.out.println("1. Employee Registration"); 
+			System.out.println("2. Employee Login"); 
+			//System.out.println("");
 			System.out.println("0. Exit");
 
 			int choice= sc.nextInt();
@@ -43,6 +49,21 @@ public class Main {
 						System.out.println("Please check details entered.");
 					}
 				}
+			else if (choice==2) {
+				System.out.println("Enter empId");
+				String empId = sc.next();
+
+				System.out.println("Enter password: ");
+				String pass = sc.next();
+
+				Employee user = usermemory.find(empId);
+				
+				Authentication auth = new BasicAuth(user,usermemory);
+				
+				if (!auth.login(empId, pass)) {
+					System.out.println("Wrong Username/Password");
+				}
+			}
 				
 	
 			

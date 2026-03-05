@@ -10,15 +10,12 @@ public class Employee {
 	
 	public Employee(String empId,String name, String email,String password) {
 		this.empId=empId;
-		this.name=empId;
+		this.name=name;
 		this.email=email;
-		this.pass=password;
-		
-		
-		
+		this.pass=Hash.hash(password);
 		}
 
-
+	
 
 	public String getEmpId() {
 		return empId;
@@ -56,14 +53,11 @@ public class Employee {
 
 
 
-	public String getPass() {
-		return pass;
-	}
-
+	public String getPass() { return pass; }
 
 
 	public void setPass(String pass) {
-		this.pass = pass;
+		this.pass = Hash.hash(pass);
 	}
 
 

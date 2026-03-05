@@ -1,36 +1,33 @@
 package com.EmployeeDetails;
+import com.EmployeeDetails.Employee;
+import com.EmployeeDetails.Memory;
 
-public class BasicAuth {
-	package com.UserRegistration;
-	// Started implementation of BasicAuth
-
-import com.UserRegistration.Authentication;
-import com.UserRegistration.RegisteredUser;
-import com.UserRegistration.UserMemory;
-
+	
 public class BasicAuth implements Authentication {
 
-	    private final RegisteredUser registeredUser;
-	    private final UserMemory memory;
+	    private final Employee registeredUser;
+	    private final Memory memory;
 	    
 	    //CONSTRUCTOR INJECTION
 	    // THIS IS DONE TO MAKE SURE THE SAME HASHMAP IS USED AND A NEW ONE IS NOT CREATED.
 	    // this. makes it clear to the class and other methods where to get the data for the registered user and memory from.
-	    public BasicAuth(RegisteredUser user,UserMemory usermemory) { 
+	    public BasicAuth(Employee user,Memory usermemory) { 
 	        this.registeredUser = user;
 	        this.memory=usermemory;
 	    }
 
-	   @Override   //Method Overriding 
+	   
 	    
 	   public boolean login(String username, String password) {
 		   
-	    if (!registeredUser.getUsername().equals(username)) {
+	    if (!registeredUser.getName().equals(username)) {
 	          System.out.println("Invalid username!");
 	         return false;
 	    }
-	    if (!registeredUser.getPassword().equals(password)) {
-	        System.out.println("Incorrect password!");
+	    
+	    
+	    if (!registeredUser.getPass().equals(Hash.hash(password))) {
+	       
 	       return false;
 	    }
 	    if (memory.exists(username)){
@@ -42,4 +39,3 @@ public class BasicAuth implements Authentication {
 	}
 	    
 
-}
