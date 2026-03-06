@@ -59,6 +59,14 @@ public class Employee {
 	public void setPass(String pass) {
 		this.pass = Hash.hash(pass);
 	}
+	
+	 @Override
+	    public String toString() {
+	        return "Employee ID : " + empId + "\n" +
+	               "Name        : " + name + "\n" +
+	               "Email       : " + email + "\n";
+	    }
+
 
 
 

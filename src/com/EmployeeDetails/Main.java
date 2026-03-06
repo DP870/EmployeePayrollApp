@@ -5,6 +5,7 @@ import java.util.*;
 import com.EmployeeDetails.Authentication;
 import com.EmployeeDetails.BasicAuth;
 import com.EmployeeDetails.Employee;
+import com.Payroll.SalaryComponents;
 
 
 public class Main {
@@ -63,6 +64,30 @@ public class Main {
 				if (!auth.login(empId, pass)) {
 					System.out.println("Wrong Username/Password");
 				}
+				
+				else {
+					int ch2=1;
+					while (ch2==1) {
+					System.out.println("1.Check Payslip");
+					
+					
+					int ch3=sc.nextInt();
+					if (ch3==1) {
+						SalaryComponents salarycomponents=new SalaryComponents(10000, 1000, 30000, 5000);
+						Payslip pay=new Payslip(user,salarycomponents,"January");
+						
+					}
+					
+					
+					
+					
+					
+					}
+					
+				}
+				
+				
+				
 			}
 				
 	
