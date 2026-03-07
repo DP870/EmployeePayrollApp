@@ -1,18 +1,29 @@
 package com.EmployeeDetails;
 
+import java.io.IOException;
 import java.util.*;
 
 import com.EmployeeDetails.Authentication;
 import com.EmployeeDetails.BasicAuth;
 import com.EmployeeDetails.Employee;
+import com.Payroll.FileService;
 import com.Payroll.SalaryComponents;
 
 
 public class Main {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		Scanner sc = new Scanner(System.in); 
 		int loop=1;
 		Memory usermemory=new Memory();
+		
+		
+		SalaryComponents salarycomponents=new SalaryComponents(10000, 1000, 30000, 5000);
+		
+		Employee defemp=new Employee("D","Dhruv","dp@gm.com","Dhruv@21");
+		usermemory.save(defemp);
+		
+		Payslip defpay=new Payslip(defemp,salarycomponents,"January");
+		
 		
 		 
 		while (loop==1) {
@@ -69,12 +80,20 @@ public class Main {
 					int ch2=1;
 					while (ch2==1) {
 					System.out.println("1.Check Payslip");
-					
+					System.out.println("2.Download Payslip");
 					
 					int ch3=sc.nextInt();
 					if (ch3==1) {
-						SalaryComponents salarycomponents=new SalaryComponents(10000, 1000, 30000, 5000);
+						SalaryComponents salarycomponents1=new SalaryComponents(10000, 1000, 30000, 5000);
 						Payslip pay=new Payslip(user,salarycomponents,"January");
+						System.out.println(pay.toString());
+						
+					}
+					else if (ch3==2) {
+						FileService file=new FileService();
+						file.savePayslip(defpay);
+						file.savePayslipAsPdf(defpay);
+						
 						
 					}
 					

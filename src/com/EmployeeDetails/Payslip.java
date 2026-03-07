@@ -1,21 +1,17 @@
 package com.EmployeeDetails;
 import com.Payroll.*;
-/**
- * Payslip
- * Represents a monthly salary statement combining employee and salary data.
- * 
- */
+
+
 public class Payslip {
     private Employee employee;
     private SalaryComponents components;
     private String month;
 
-    /**
-     * Constructs a payslip with aggregated and composed data.
-     * @param employee The employee receiving the payslip
-     * @param components The calculated salary components
-     * @param month The month of the payslip
-     */
+    public Employee getEmployee() {
+        return employee;
+    }
+    
+     
     public Payslip(Employee employee, SalaryComponents components, String month) {
         this.employee = employee;
         this.components = components;
