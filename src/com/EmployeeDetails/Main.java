@@ -82,6 +82,7 @@ public class Main {
 					System.out.println("1.Check Payslip");
 					System.out.println("2.Download Payslip");
 					
+					
 					int ch3=sc.nextInt();
 					if (ch3==1) {
 						SalaryComponents salarycomponents1=new SalaryComponents(10000, 1000, 30000, 5000);

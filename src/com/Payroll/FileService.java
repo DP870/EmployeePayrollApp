@@ -4,6 +4,7 @@ import com.EmployeeDetails.*;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.List;
 
 //Handles saving payslip data to external files.
 
@@ -31,4 +32,16 @@ public class FileService {
         }
         return fileName;
     }
+
+
+	public List<Double> getSavedNetPays(String empId) {
+		
+		return null;
+	}
+
+
+	public String getempId(String username) {
+		
+		return null;
+	}
 }
